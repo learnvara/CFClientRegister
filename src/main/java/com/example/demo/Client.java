@@ -1,7 +1,13 @@
 package com.example.demo;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name = "new_clients")
 public class Client {
 
     public Client() {
@@ -9,25 +15,30 @@ public class Client {
 
     public Client(String description, String details, String email) {
         this.firstName = description;
-        this.latName = details;
+        this.lastName = details;
         this.email = email;
     }
 
-    @Id
-    private Long id;
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @javax.persistence.Id
+    @GeneratedValue()
+    @Column
+    private Long newClientId;
 
+    @Column
     private String firstName;
-
-    private String latName;
-
+    @Column()
+    private String lastName;
+    @Column()
     private String email;
 
-    public Long getId() {
-        return id;
+    public Long getNewClientId() {
+        return newClientId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setNewClientId(Long newClientId) {
+        this.newClientId = newClientId;
     }
 
     public String getFirstName() {
@@ -39,11 +50,11 @@ public class Client {
     }
 
     public String getLatName() {
-        return latName;
+        return lastName;
     }
 
     public void setLatName(String latName) {
-        this.latName = latName;
+        this.lastName = latName;
     }
 
     public String getEmail() {

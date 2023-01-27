@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.ej.onboard;
 
 import org.springframework.data.repository.CrudRepository;
 
